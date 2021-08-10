@@ -1,0 +1,91 @@
+STAR version=2.7.9a_2021-06-25
+STAR compilation time,server,dir=2021-08-04T13:11:46-0600 lonepeak1:/uufs/chpc.utah.edu/common/home/u0854535/software/STAR/source
+##### Command Line:
+STAR --genomeDir /uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125 --runThreadN 24 --readFilesIn gut_1.fq gut_2.fq --twopassMode Basic --outSAMtype BAM SortedByCoordinate --quantMode TranscriptomeSAM --outWigType bedGraph --outWigStrand Unstranded
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+genomeDir                     /uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125     ~RE-DEFINED
+runThreadN                    24     ~RE-DEFINED
+readFilesIn                   gut_1.fq   gut_2.fq        ~RE-DEFINED
+twopassMode                   Basic     ~RE-DEFINED
+outSAMtype                    BAM   SortedByCoordinate        ~RE-DEFINED
+quantMode                     TranscriptomeSAM        ~RE-DEFINED
+outWigType                    bedGraph        ~RE-DEFINED
+outWigStrand                  Unstranded        ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runThreadN                        24
+genomeDir                         /uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125
+readFilesIn                       gut_1.fq   gut_2.fq   
+outSAMtype                        BAM   SortedByCoordinate   
+outWigType                        bedGraph   
+outWigStrand                      Unstranded   
+quantMode                         TranscriptomeSAM   
+twopassMode                       Basic
+
+-------------------------------
+##### Final effective command line:
+STAR   --runThreadN 24   --genomeDir /uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125   --readFilesIn gut_1.fq   gut_2.fq      --outSAMtype BAM   SortedByCoordinate      --outWigType bedGraph      --outWigStrand Unstranded      --quantMode TranscriptomeSAM      --twopassMode Basic
+----------------------------------------
+
+Number of fastq files for each mate = 1
+ParametersSolo: --soloCellFilterType CellRanger2.2 filtering parameters:  3000 0.99 10
+WARNING: --limitBAMsortRAM=0, will use genome size as RAM limit for BAM sorting
+Finished loading and checking parameters
+Reading genome generation parameters:
+### STAR   --runMode genomeGenerate      --runThreadN 24   --genomeDir star125   --genomeFastaFiles /scratch/general/lustre/u0854535/RNASeqRef/Homo_sapiens.GRCh37.dna.primary_assembly.fa      --sjdbGTFfile /scratch/general/lustre/u0854535/RNASeqRef/Homo_sapiens.GRCh37.87.gtf   --sjdbOverhang 124
+### GstrandBit=32
+versionGenome                 2.7.4a     ~RE-DEFINED
+genomeType                    Full     ~RE-DEFINED
+genomeFastaFiles              /scratch/general/lustre/u0854535/RNASeqRef/Homo_sapiens.GRCh37.dna.primary_assembly.fa        ~RE-DEFINED
+genomeSAindexNbases           14     ~RE-DEFINED
+genomeChrBinNbits             18     ~RE-DEFINED
+genomeSAsparseD               1     ~RE-DEFINED
+genomeTransformType           None     ~RE-DEFINED
+genomeTransformVCF            -     ~RE-DEFINED
+sjdbOverhang                  124     ~RE-DEFINED
+sjdbFileChrStartEnd           -        ~RE-DEFINED
+sjdbGTFfile                   /scratch/general/lustre/u0854535/RNASeqRef/Homo_sapiens.GRCh37.87.gtf     ~RE-DEFINED
+sjdbGTFchrPrefix              -     ~RE-DEFINED
+sjdbGTFfeatureExon            exon     ~RE-DEFINED
+sjdbGTFtagExonParentTranscripttranscript_id     ~RE-DEFINED
+sjdbGTFtagExonParentGene      gene_id     ~RE-DEFINED
+sjdbInsertSave                Basic     ~RE-DEFINED
+genomeFileSizes               2637754951   20321357854        ~RE-DEFINED
+Genome version is compatible with current STAR
+Number of real (reference) chromosomes= 20
+1	1	249250621	0
+2	10	135534747	249298944
+3	11	135006516	385089536
+4	12	133851895	520355840
+5	13	115169878	654311424
+6	14	107349540	769654784
+7	15	102531392	877133824
+8	16	90354753	979894272
+9	17	81195210	1070333952
+10	18	78077248	1151598592
+11	19	59128983	1229717504
+12	2	243199373	1288962048
+13	20	63025520	1532231680
+14	21	48129895	1595408384
+15	22	51304566	1643642880
+16	3	198022430	1695023104
+17	4	191154276	1893203968
+18	5	180915260	2084569088
+19	6	171115067	2265710592
+20	7	125413112	2436890624
+--sjdbOverhang = 124 taken from the generated genome
+Started loading the genome: Tue Aug 10 14:27:23 2021
+
+Genome: size given as a parameter = 2637754951
+SA: size given as a parameter = 20321357854
+SAindex: size given as a parameter = 1
+Read from SAindex: pGe.gSAindexNbases=14  nSAi=357913940
+nGenome=2637754951;  nSAbyte=20321357854
+GstrandBit=32   SA number of indices=4926389782
+Shared memory is not used for genomes. Allocated a private copy of the genome.
+Genome file size: 2637754951 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading Genome ... done! state: good=1 eof=0 fail=0 bad=0; loaded 2637754951 bytes
+SA file size: 20321357854 bytes; state: good=1 eof=0 fail=0 bad=0
+Loading SA ... 
