@@ -1,4 +1,0 @@
-	STAR --genomeDir /uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125 --runThreadN 24 --readFilesIn gut_1.fq gut_2.fq --twopassMode Basic --outSAMtype BAM SortedByCoordinate --quantMode TranscriptomeSAM --outWigType bedGraph --outWigStrand Unstranded
-	STAR version: 2.7.9a_2021-06-25   compiled: 2021-08-04T13:11:46-0600 lonepeak1:/uufs/chpc.utah.edu/common/home/u0854535/software/STAR/source
-Aug 10 14:27:23 ..... started STAR run
-Aug 10 14:27:23 ..... loading genome
