@@ -2,3 +2,4 @@ out
 work
 .nextflow*
 basicPipeline.nf
+pipelineKickOff-*
