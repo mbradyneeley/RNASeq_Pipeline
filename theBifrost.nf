@@ -87,7 +87,7 @@ process fast_qc {
 
 
 //Sort fastq reads by sequence identifier
-process sortFastqReads {
+/*process sortFastqReads {
 
     tag "$sample_id"
 
@@ -97,16 +97,18 @@ process sortFastqReads {
         tuple val(sample_id), path(fqs) from reads_in3
 
     output:
-        tuple val(sample_id), path('*.fastq') into sorted_reads_ch
+        tuple val(sample_id), path('*.fastq.gz') into sorted_reads_ch
 
     script:
         fq1 = fqs[0]
         fq2 = fqs[1]
         """
         cat $fq1 | paste - - - - | sort -k1,1 -t " " | tr "\t" "\n" > ${sample_id}sorted_1.fastq
+        gzip ${sample_id}sorted_1.fastq
         cat $fq2 | paste - - - - | sort -k1,1 -t " " | tr "\t" "\n" > ${sample_id}sorted_2.fastq
+        gzip ${sample_id}sorted_2.fastq
         """
-}
+}*/
 
 
 //Align reads
@@ -117,10 +119,11 @@ process alignReads {
     publishDir params.bams
 
     input:
-        tuple val(sample_id), path(fqs) from sorted_reads_ch
+        //tuple val(sample_id), path(fqs) from sorted_reads_ch
+        tuple val(sample_id), path(fqs) from reads_in3
 
-    output:
-        tuple val(sample_id), path("*.bam") into aligned_ch 
+    //output:
+        //tuple val(sample_id), path("*.bam") into aligned_ch 
     
     script:
         fq1 = fqs[0]
@@ -148,7 +151,7 @@ Channel.from("${params.bams}/*.bam").set{ aligned_ch2 }
 //TODO: Need indexes of Bams?
 
 //Count uniquely aligned reads overlapping features in the GTF file
-process countFeatures {
+/*process countFeatures {
 
     publishDir params.outDir
 
@@ -164,7 +167,7 @@ process countFeatures {
         """
         featureCounts -T 24 -p -s 2  --largestOverlap -a ${params.refGTF} -o ${sample_id}.counts $alignedReads
         """
-}
+}*/
 
 
 //Check alignment QC
@@ -194,4 +197,4 @@ process indexStats {
         samtools idxstats
         """
 }*/
-
+//R/4.0.2 has DESeq2 installed in its site library (.Library.site) 

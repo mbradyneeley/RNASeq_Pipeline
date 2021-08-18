@@ -7,7 +7,7 @@
 #SBATCH --mail-user=brady.neeley@hsc.utah.edu
 #SBATCH --mail-type=END
 #SBATCH --account=pezzolesi
-#SBATCH --partition=lonepeak
+#SBATCH --partition=notchpeak
 #SBATCH --ntasks=6
 #SBATCH --mem=32G
 
