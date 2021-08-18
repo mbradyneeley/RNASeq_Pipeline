@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-#SBATCH --time=3-00:00:00
+#SBATCH --time=06:00:00
 #SBATCH --nodes=1
 #SBATCH -o pipelineKickOff-%j.out
 #SBATCH -e pipelineKickOff-%j.err
 #SBATCH --mail-user=brady.neeley@hsc.utah.edu
 #SBATCH --mail-type=END
 #SBATCH --account=pezzolesi
-#SBATCH --partition=lonepeak
+#SBATCH --partition=notchpeak
 #SBATCH --ntasks=6
 #SBATCH --mem=32G
 
@@ -16,12 +16,6 @@ resume=$1
 configFile=$2
 # rename this vvvv to create a new directory for your project (i.e. if you want to start over without deleting what you've already done)
 scratchDir="/scratch/general/lustre/$USER/theBifrost"
-#var=$(cat nextflow.config | grep "scratch =")--|
-#IFS="\"" read -ra varArr <<< $var              |- cant get to work yet
-#scratchDir=${varArr[1]}                      --|
-# IGNORE: rename this vvvv to change clusters (e.g. kingspeak, notchpeak, ember, lonepeak, etc.)
-# IGNORE: SLURM_CLUSTERS="notchpeak"
-# IGNORE: export SLURM_CLUSTERS
 
 if [[ $resume == "resume" ]]; then
     if [ -d $scratchDir ]; then
