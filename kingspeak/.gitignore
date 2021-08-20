@@ -1,0 +1,5 @@
+out
+work .nextflow* basicPipeline.nf
+pipelineKickOff-*
+kingspeak
+deseq2.R
