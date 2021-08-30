@@ -1,4 +1,4 @@
-# RNASeq_Pipeline
+# RNASeq_Pipeline (Combine these READMEs into one)
 This is a fairly simple pipeline for RNASeq data analysis
 
 Important components of this pipeline are the correct reference made with STAR
