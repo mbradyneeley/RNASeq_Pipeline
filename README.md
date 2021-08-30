@@ -1,6 +1,8 @@
 # RNASeqPipeline
-This is a simple pipeline for RNASeq data analysis. Input is currently only recieved as fastq files.
+This is a simple pipeline for RNASeq data analysis based off of the workflow used by the Bioinformatics Core at the University of Utah HCRI. Currently input files can only be in fastq format.
 
-![Bifrost_Bridge_(Thor_Ragnarok)](https://user-images.githubusercontent.com/55114836/129086550-b321f43e-f4cc-43f7-8821-9341c48ac982.png)
+While changes are frequently being made and the pipeline is being tested, to avoid using up our CHPC allocation I am running the pipeline out of the kingspeak directory. There is a `nextflow.config` file in the `/kingspeak/configs` directory that can be updated for each unique run of the pipeline however, I am keeping things simple while testing and have the parameters listed in the top of the `main.nf` file.
 
-The pipeline itself has been given the name 'theBifrost' in honor of the Rainbow Bridge into Asgard. I will probably change this in the future to be less nerdy.
+## Usage
+
+`nextflow run main.nf`
