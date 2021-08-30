@@ -5,6 +5,9 @@ if (params.reads) { Channel.fromFilePairs( "${params.reads}", checkIfExists:true
     .into { reads_in; reads_in2; reads_in3 }
 } else { exit 1, 'Input reads not specified!' }
 
+// TODO: some kind of if else that depends on whether or not a path to single end reads
+// is given. It'd be cool if that could be added here to the config or over CLI as --singleEndReads
+
 //Channel.fromFilePairs( "${params.reads}", checkIfExists:true )
 //    .into { reads_in; reads_in2; reads_in3 }
     

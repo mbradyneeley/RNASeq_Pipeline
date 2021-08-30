@@ -3,4 +3,3 @@ work
 .nextflow*
 basicPipeline.nf
 pipelineKickOff-*
-kingspeak
