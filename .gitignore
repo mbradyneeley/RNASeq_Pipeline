@@ -1,5 +1,19 @@
 out
-work
-.nextflow*
+work 
+.nextflow\* 
 basicPipeline.nf
-pipelineKickOff-*
+pipelineKickOff-\*
+kingspeak
+deseq2.R
+alignReads.sh
+brady_cmd.txt
+cmd.txt
+SJ.out.tab
+newEnsemblGeneSymbols.txt
+JC7904_sub1.6.3.counts
+counts_marcus.txt
+dds.rda
+DESeq.xlsx
+Log.out Log.progress.out
+Rplots.pdf
+RNAseq_submission_72samples_pheno.txt RNAseq_submission_72samples_pheno.xlsx
