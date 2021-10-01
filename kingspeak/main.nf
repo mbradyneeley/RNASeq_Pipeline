@@ -1,40 +1,59 @@
 #!/usr/bin/env nextflow
 
-    //params.pairedEndReads   = "/scratch/general/lustre/u0854535/RNASeqData/SRA/sra/pairedEndReads/*_{1,2}.fastq.gz"
-    params.pairedEndReads   = "/scratch/general/lustre/u0854535/RNASeqData/JC7904_{1,2}.fastq.gz"
-    params.outDir       = "/uufs/chpc.utah.edu/common/home/u0854535/workflows/RNASeq/RNASeq_Pipeline/kingspeak/out"
-    params.genomeRef    = "/uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125"
-    params.refGTF       = "/scratch/general/lustre/u0854535/RNASeqRef/Homo_sapiens.GRCh38.102.gtf"
-    params.refFA      = "/uufs/chpc.utah.edu/common/home/u0854535/referenceFiles/hg38_v0_Homo_sapiens_assembly38.fasta"
-
-    //Flat file for hg38/GR38
-    params.refFlat      = "/scratch/general/lustre/u0854535/RNASeqRef/refFlat_hg38.txt.gz"
-
-    //Make sure the scratch directory is up to date
-    params.fastqcOut    = "/scratch/general/lustre/u0854535/1frost/results/fastqc"
-    params.bams         = "/scratch/general/lustre/u0854535/1frost/results/bam"
-    params.multi_qc      = "/scratch/general/lustre/u0854535/1frost/results/multi_qc"
-    params.DESeq        = "/scratch/general/lustre/u0854535/1frost/results/deseq2"
-
-    params.cpusLeft     = 5
+   // params.pairedEndReads   = "/scratch/general/lustre/u0854535/RNASeqData/*_{1,2}.fastq.gz"
+   // //params.pairedEndReads   = "/scratch/general/lustre/u0854535/RNASeqData/JC7904_{1,2}.fastq.gz"
+   // params.outDir       = "/uufs/chpc.utah.edu/common/home/u0854535/workflows/RNASeq/RNASeq_Pipeline/kingspeak/out"
+   // params.genomeRef    = "/uufs/chpc.utah.edu/common/home/u0854535/RNASeq/scripts/star125"
+   // params.refGTF       = "/scratch/general/lustre/u0854535/RNASeqRef/Homo_sapiens.GRCh38.104.gtf"
+   // params.refFA        = "/uufs/chpc.utah.edu/common/home/u0854535/referenceFiles/hg38_v0_Homo_sapiens_assembly38.fasta"
+   // 
+   // //Flat file for hg38/GR38
+   // params.refFlat      = "/scratch/general/lustre/u0854535/RNASeqRef/refFlat_hg38.txt"
+   // 
+   // //Make sure the scratch directory is up to date
+   // params.fastqcOut    = "/scratch/general/lustre/u0854535/theBifrost/results/fastqc"
+   // params.bams         = "/scratch/general/lustre/u0854535/theBifrost/results/bam"
+   // params.multi_qc     = "/scratch/general/lustre/u0854535/theBifrost/results/multi_qc"
+   // 
+   // //DESeq2 parameters
+   // params.DESeq        = "/scratch/general/lustre/u0854535/theBifrost/results/deseq2"
+   // params.phenoFile    = "/uufs/chpc.utah.edu/common/home/u0854535/workflows/RNASeq/RNASeq_Pipeline/kingspeak/RNAseq_submission_72samples_pheno.xlsx"
+   // 
+   // params.cpusLeft     = 5
+   // 
+   // //Project directory for accessing local files
+   // params.projectDir   = "/uufs/chpc.utah.edu/common/home/u0854535/workflows/RNASeq/RNASeq_Pipeline/kingspeak"
     
 log.info """\
 ===========================================================================
 
-R N A S E Q - N F   P I P E L I N E   
+██████  ███    ██  █████  ███████ ███████  ██████  
+██   ██ ████   ██ ██   ██ ██      ██      ██    ██ 
+██████  ██ ██  ██ ███████ ███████ █████   ██    ██ 
+██   ██ ██  ██ ██ ██   ██      ██ ██      ██ ▄▄ ██ 
+██   ██ ██   ████ ██   ██ ███████ ███████  ██████  
+                                              ▀▀                                                               
 
-P E Z Z O L E S I   L A B  -  2 0 2 1 
+██████  ██ ██████  ███████ ██      ██ ███    ██ ███████ 
+██   ██ ██ ██   ██ ██      ██      ██ ████   ██ ██      
+██████  ██ ██████  █████   ██      ██ ██ ██  ██ █████   
+██      ██ ██      ██      ██      ██ ██  ██ ██ ██      
+██      ██ ██      ███████ ███████ ██ ██   ████ ███████ 
 
+P E Z Z O L E S I   L A B   2 0 2 1
+B R A D Y   N E E L E Y
 ===========================================================================
 
-    reads        = params.pairedEndReads
-    outDir       = params.outDir
-    genomeRef    = params.genomeRef
-    refGTF       = params.refGTF
-    refFlat      = params.refFlat
-    fastqcOut    = params.fastqcOut
-    bams         = params.bams
-    multi_qc     = params.multi_qc
+    reads        = $params.pairedEndReads
+    outDir       = $params.outDir
+    genomeRef    = $params.genomeRef
+    refGTF       = $params.refGTF
+    refFlat      = $params.refFlat
+    fastqcOut    = $params.fastqcOut
+    bams         = $params.bams
+    multi_qc     = $params.multi_qc
+    DESeq        = $params.DESeq
+    sampleIDs    = $params.phenoFile
 
 ==========================================================================
 """                
@@ -52,6 +71,8 @@ if (params.pairedEndReads) { Channel.fromFilePairs( "${params.pairedEndReads}", 
 
 //TODO: Test removal of optical reads with our RNASeq data from the core
 process removeOpticalReads {
+
+    tag "$sample_id"
 
     publishDir params.outDir
 
@@ -74,6 +95,8 @@ process removeOpticalReads {
 
 //Trim adapters
 process trimAdapt {
+
+    tag "$sample_id"
 
     input:
         tuple val(sample_id), path(fqs) from reads_ch
@@ -100,6 +123,8 @@ fastqs_ch.into { trimmedFQs1; trimmedFQs2 }
 //Run reads through fastqc, find out if adapters are present in results
 process fast_qc {
 
+    scratch '/scratch/general/lustre/u0854535/temp'
+
     tag "$sample_id"
 
     //publishDir params.outDir    
@@ -109,7 +134,8 @@ process fast_qc {
         //tuple val(sample_id), path(fqs) from reads_in2
         //The tuple looks like [sample_id, [fastq1, fastq2]]
 
-    //output:
+    output:
+        val true into done_fastqc
         //file '*.html' into qc_ch
 
     script:
@@ -148,6 +174,8 @@ process fast_qc {
 //Align reads
 process alignReads {
 
+    scratch '/scratch/general/lustre/u0854535/temp'
+
     tag "$sample_id"
 
     publishDir "${params.bams}", mode: 'copy', pattern: '*.bam'
@@ -157,6 +185,7 @@ process alignReads {
         //tuple val(sample_id), path(fqs) from sorted_reads_ch
         //tuple val(sample_id), path(fqs) from reads_in3
         tuple val(sample_id), path(fqs) from trimmedFQs2
+        val flag from done_fastqc
 
     output:
         path("*.sortedByCoord.out.bam") into aligned_ch 
@@ -165,6 +194,7 @@ process alignReads {
         fq1 = fqs[0]
         fq2 = fqs[1]
         //STAR cannot read files that are compressed unless you provide the --readFilesCommand zcat
+        //limitBAMsortRAM was 50000000000 or 50GB now its 140GB
         """
         module load gcc/8.3.0
         STAR --genomeDir $params.genomeRef \
@@ -178,7 +208,7 @@ process alignReads {
              --outFileNamePrefix ${sample_id} \
              --outTmpKeep All \
              --outStd Log \
-             --limitBAMsortRAM 40000000000 \
+             --limitBAMsortRAM 140000000000 \
              --readFilesCommand zcat
         """
 }
@@ -208,6 +238,7 @@ sortedAligned_ch.into{ aligned_ch4;aligned_ch3; aligned_ch2; aligned_ch1 }
 //TODO: Need indexes of Bams?
 //aligned_ch2.view()
 //Count uniquely aligned reads overlapping features in the GTF file
+//JUST PASS ALL THE BAMS INTO FEATURECOUNTS AT ONCE, THEN FEEDING TO DESEQ2 IS EASY
 process countFeatures {
 
     publishDir params.outDir
@@ -215,19 +246,21 @@ process countFeatures {
     beforeScript "echo ${alignedReads}"
 
     input:
-        path(bam) from aligned_ch1
+        path '*.bam' from aligned_ch1.toList()
 
     output:
         //this works file '*.counts.txt' into counts_ch
-        path '*.counts.txt' into counts_ch
+        path '*.counts.txt' into counts_ch1
 
     script:
         //println "$bam"
         """ 
-        featureCounts -T 24 -p -s 2  --largestOverlap -a ${params.refGTF} -o ${bam.simpleName}.counts.txt $bam
+        featureCounts -T 24 -p -s 2  --largestOverlap -a ${params.refGTF} -o featCounts.counts.txt *.bam
         """
+        //featureCounts -T 24 -p -s 2  --largestOverlap -a ${params.refGTF} -o ${bam.simpleName}.counts.txt $bam
 }
 
+counts_ch1.into{ counts_ch;counts_fix_ids_ch }
 
 //Check alignment QC
 process checkAlignment {
@@ -283,10 +316,10 @@ process multiqc {
     output:
         file("*.html") into mult_ch
 
+    //Running multiqc from conda working env
     script:
         """
-        ml multiqc
-        multiqc /uufs/chpc.utah.edu/common/home/u0854535/workflows/RNASeq/RNASeq_Pipeline/kingspeak/out /scratch/general/lustre/u0854535/1frost/results/bam
+        multiqc $params.outDir $params.bams
         """
 
 }
@@ -294,7 +327,7 @@ process multiqc {
 
 process deseq2 {
 
-    publishDr params.DESeq
+    publishDir params.DESeq
 
     input:
        path(counts) from counts_ch 
@@ -305,9 +338,24 @@ process deseq2 {
     script:
         """
         ml R/3.6.1
-        Rscript runDESeq2.sh -c $counts -p ...
-
+        Rscript $params.projectDir/runDESeq2.R -c $counts -p $params.phenoFile
         """
 
 }
- 
+
+
+/*
+process convertEnsemblIDs {
+
+    publishDir params.outDir
+
+    input:
+        path(counts) from counts_fix_ids_ch
+
+    output:
+        
+    script:
+
+
+}
+*/ 

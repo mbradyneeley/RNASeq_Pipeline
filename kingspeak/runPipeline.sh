@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-#SBATCH --time=06:00:00
+#SBATCH --time=3-00:00:00
 #SBATCH --nodes=1
+#SBATCH --ntasks=2
 #SBATCH -o pipelineKickOff-%j.out
 #SBATCH -e pipelineKickOff-%j.err
 #SBATCH --mail-user=brady.neeley@hsc.utah.edu
 #SBATCH --mail-type=END
 #SBATCH --account=pezzolesi
 #SBATCH --partition=notchpeak
-#SBATCH --ntasks=6
-#SBATCH --mem=32G
+#SBATCH --mem=10G
 
 # this vvvv should be either 'resume' or 'new'
 resume=$1
