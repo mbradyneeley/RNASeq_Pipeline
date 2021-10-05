@@ -17,6 +17,13 @@ gtfToGenePred \
 
 and written to a file named refFlat_<GTFBuildVersion>.txt then gzipped.
 
+Usage:
+HPC submission
+sbatch runPipeline.sh new /uufs/chpc.utah.edu/common/home/u0854535/workflows/RNASeq/RNASeq_Pipeline/kingspeak/configs/labNodeNextflow.config
+
+CLI
+nextflow -c config/labNodeNextflow.config main.nf
+
 ToDo:
 - Implement value channels in place of some queue channels
     - https://seqera.io/training/

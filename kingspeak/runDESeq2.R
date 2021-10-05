@@ -75,6 +75,7 @@ if (is.null(opt$samplePhenoFile)){
 #  requested_genes_path = opt$genelist
 #}
 
+#samples <- read_table(sample_pheno_file)
 samples <- read_excel(sample_pheno_file)
 #samples <- read_excel("RNAseq_submission_72samples_pheno.xlsx")
 samples <- samples[order_samples(samples$Sample_ID), ]
@@ -98,9 +99,15 @@ counts <- filter_counts(path_count_table, n = 10)
 #In addition, remove 3628 genes with 10 or fewer reads in 90% of samples to create
 #a final count matrix with 22121 rows
 
-n <- rowSums(as_matrix(counts) > 10)
-sum(n <= 7)
-counts <- counts[n > 7,]
+#test with the cols variable - Brady, revert with larger sample size
+cols <- ncol(as.matrix(counts)) - 2
+n <- rowSums(as_matrix(counts) > cols)
+#n <- rowSums(as_matrix(counts) > 10)
+sum(n <= cols)
+counts <- counts[n > cols,]
+rowMeans(as_matrix(counts))
+#sum(n <= 7)
+#counts <- counts[n > 7,]
 
 #Check genes with the highest number of assigned reads.
 

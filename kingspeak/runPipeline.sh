@@ -2,7 +2,7 @@
 
 #SBATCH --time=3-00:00:00
 #SBATCH --nodes=1
-#SBATCH --ntasks=2
+#SBATCH --ntasks=1
 #SBATCH -o pipelineKickOff-%j.out
 #SBATCH -e pipelineKickOff-%j.err
 #SBATCH --mail-user=brady.neeley@hsc.utah.edu

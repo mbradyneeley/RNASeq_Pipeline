@@ -337,8 +337,9 @@ process deseq2 {
 
     script:
         """
+        cut -f1,7- $counts > formattedCounts.txt
         ml R/3.6.1
-        Rscript $params.projectDir/runDESeq2.R -c $counts -p $params.phenoFile
+        Rscript $params.projectDir/runDESeq2.R -c formattedCounts.txt -p $params.phenoFile
         """
 
 }
