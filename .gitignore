@@ -1,8 +1,8 @@
 out
 work 
-.nextflow\* 
+.nextflow* 
 basicPipeline.nf
-pipelineKickOff-\*
+pipelineKickOff-*
 kingspeak
 deseq2.R
 alignReads.sh
@@ -17,3 +17,4 @@ DESeq.xlsx
 Log.out Log.progress.out
 Rplots.pdf
 RNAseq_submission_72samples_pheno.txt RNAseq_submission_72samples_pheno.xlsx
+compare.R
