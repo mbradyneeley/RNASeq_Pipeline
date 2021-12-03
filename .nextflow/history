@@ -1,0 +1,20 @@
+2021-09-03 13:41:35	13m 34s	evil_kirch	ERR	962c12e816ca96e722ea712cdb8c33ff	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-07 16:06:25	2h 19m 42s	golden_liskov	ERR	c7576d55edcd19c8b31dd97cd6ebbd39	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-08 13:14:08	29s	sleepy_saha	ERR	2db59fb41a093df80fb105e5913d53fd	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-08 13:16:17	3.6s	peaceful_curie	ERR	4ec3d4d079201d06f6e1fcbe08d40db6	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-08 13:18:32	3.3s	voluminous_ramanujan	ERR	c0c4e4176dc2d6c71857b458fc27cbc9	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-08 13:22:53	3.3s	golden_ampere	ERR	c0c4e4176dc2d6c71857b458fc27cbc9	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-08 13:27:43	5.4s	ecstatic_shannon	ERR	27c5d108360da55791e2da71554979f6	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-08 13:29:00	7.1s	nostalgic_majorana	ERR	e30bdcd329849a520c58f5acbd5585bd	3b2212ad-6e8e-4f3f-8a87-cb5ba780a272	nextflow run main.nf -resume
+2021-09-22 12:40:48	3.2s	shrivelled_kare	ERR	b35a03e4a8637716790e943a0cd3c6ab	55c2b497-f706-4e04-b42b-0bd8c68f93fd	nextflow test.nf
+2021-09-22 12:42:11	2.3s	awesome_visvesvaraya	ERR	d9b450a58d36fd3af977de4029131de8	298f13cb-6a2a-4751-ac57-52a497e4de13	nextflow test.nf
+2021-09-22 12:42:49	2.8s	sad_nightingale	ERR	5eefdd9e7d22bb3994bae8a751be958e	b7ffcff9-f97e-4d44-a58e-f55ab2397546	nextflow test.nf
+2021-09-22 12:44:40	-	ecstatic_kirch	-	8cfca7389f5ef038fd0a77396fce9bf2	fc5826cf-0de3-4c9a-8523-5a5a9dec4f4a	nextflow test.nf
+2021-09-22 12:45:04	2.6s	fervent_lavoisier	OK	8317b204f4827ba8060d65f66cf65147	c991e9d9-d8ec-474c-97d1-bb6f38b15269	nextflow test.nf
+2021-09-22 12:46:34	2.9s	grave_mestorf	ERR	8799e06c0339aaadca0a05d19fc33d11	22da379f-9448-417b-a41b-e7d7d8337922	nextflow test.nf
+2021-09-22 12:46:57	2.6s	elegant_cajal	ERR	2f4d49fc7dd14d2ead098eddc5bdbdf8	68d6c003-713f-4b52-bfe9-2b13c716ada4	nextflow test.nf
+2021-09-22 12:47:40	3.1s	sleepy_goldwasser	ERR	061315523968c72ee5c571b931a966f3	2172f3b1-d40f-44fa-9d57-4d81c1c3df78	nextflow test.nf
+2021-09-22 12:48:07	-	gigantic_mercator	-	4608f1ddd84e7cfe5d607b10c1a083b0	14f48dc3-8403-4ba8-bf74-7e78d7147725	nextflow test.nf
+2021-09-22 12:48:52	-	extravagant_pauling	-	88e8d5c4c1c4c89635b0dc78befaf076	dd2d8fb3-3213-451c-94c1-5cc5541151e3	nextflow test.nf
+2021-09-22 12:49:11	-	silly_ekeblad	-	077fa801d66096c4f1e233bbb677430d	71c9abf5-06af-46e7-b76f-c5e4b386d61b	nextflow test.nf
+2021-09-22 12:49:30	3.4s	condescending_mestorf	OK	f0225fd321fc0238787b421c1a7e93c1	5f45b92d-7e94-4c5d-af33-3d013dc28024	nextflow test.nf
