@@ -1,8 +1,8 @@
 out
 work 
-.nextflow* 
+.nextflow 
 basicPipeline.nf
-pipelineKickOff-*
+pipelineKickOff-
 kingspeak
 deseq2.R
 alignReads.sh
